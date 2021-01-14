@@ -81,14 +81,15 @@ function Subscribe({receivedUser,user}){
     
     }
 
- if(user.userData)
+ if(user.userData) //로그인안되있는사람도 user.userData정보는가지고있다. -참고-
  {
     return(
-        <div>
+        <div>  
+            
             구독자수:{SubscribeNumber}
-            
-            {user.userData.isAuth &&
-            
+           
+            {user.userData.isAuth && user.userData._id !== receivedUser &&
+          
             <button
             style={{
                 backgroundColor:`${Subscribed ? '#AAAAAA' : '#CC0000'}`,
@@ -101,6 +102,12 @@ function Subscribe({receivedUser,user}){
             </button>
         
             }
+            <br/>
+            {/*
+            로그인중인사람:  {user.userData._id}
+            영상주인:    {receivedUser}
+            */ }
+           
         </div>
             
     )

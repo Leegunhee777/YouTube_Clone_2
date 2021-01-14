@@ -45,9 +45,9 @@ function LoginPage(props) {
           dispatch(loginUser(dataToSubmit))
             .then(response => {
               if (response.payload.loginSuccess) {
-                window.localStorage.setItem('userId', response.payload.userId);
+                window.localStorage.setItem('userId', response.payload.userId); //여기서 로컬스토리지 사용함!!!!!!!!!!!!!!!1
                 if (rememberMe === true) {
-                  window.localStorage.setItem('rememberMe', values.id);
+                  window.localStorage.setItem('rememberMe', values.id);  
                 } else {
                   localStorage.removeItem('rememberMe');
                 }
